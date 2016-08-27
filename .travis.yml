@@ -1,4 +1,5 @@
 language: csharp
+solution: msconfig.sln
 before_deploy:
   - git config --global user.email "builds@travis-ci.com"
   - git config --global user.name "Travis CI"
