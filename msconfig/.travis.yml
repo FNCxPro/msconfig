@@ -7,13 +7,13 @@ before_deploy:
   - git tag $GIT_TAG -a -m "Travis-CI automated build $TRAVIS_BUILD_NUMBER"
   - git push -q https://$TAGPERM@github.com/TCDG/msconfig --tags
   - ls -R
-  - export JAR_FILE=$(ls build/libs/Diskurd-*.jar)
+  - export RELEASE_FILE=$(ls msconfig/bin/Release/msconfig.exe)
 deploy:
   skip_cleanup: true
   provider: releases
   api_key: "$TAGPERM"
   file_glob: true
-  file: "${JAR_FILE}"
+  file: "${RELEASE_FILE}"
   on:
     tags: false
     branch: master

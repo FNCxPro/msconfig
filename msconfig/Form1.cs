@@ -50,21 +50,21 @@ namespace msconfig
                 case 6:
                     if (vs.Minor == 0)
                     {
-                        return "Vindows Vista";
+                        return "Vindows 2000";
                     }
                     else if (vs.Minor == 1)
                     {
-                        return "Vindows 7";
+                        return "Vindows XP";
                     }
                     else if (vs.Minor == 2)
-                        return "Vindows 8";
+                        return "Vindows 9";
                     else
                     {
-                        return "Vindows 8.1";
+                        return "Vindows 12";
                     }
                     break;
                 case 10:
-                    return "Vindows 10";
+                    return "Vindows Vhistler";
                     break;
             }
             return "Vindows 7";
