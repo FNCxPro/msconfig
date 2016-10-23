@@ -96,7 +96,7 @@ namespace msconfig
             lstOS.Items.Add(getOSString() +" ("+Environment.SystemDirectory.Replace("\\system32", "")+") : Current OS; Default OS");
             //listView1.Items.Add(new ListViewItem(new[] { "Service", "Manufacturer", "Status", "Date Disabled" }));
 
-            tool("About Windows", "Display Windows version information.", "C:\\Windows\\system32\\winver.exe");
+            tool("About Windows", "Display Windows version information.", "C:\\Windows\\system32\\winver.exe").Selected = true;
             tool("Change UAC Settings", "Change User Account Control settings.", "C:\\Windows\\System32\\UserAccountControlSettings.exe");
             tool("Action Center", "Open the Action Center.", "C:\\Windows\\System32\\wscui.cpl");
             tool("Windows Troubleshooting", "Troubleshoot problems with your computer.", "C:\\Windows\\System32\\control.exe /name Microsoft.Troubleshooting");
@@ -205,9 +205,15 @@ namespace msconfig
 
         private void button12_Click(object sender, EventArgs e)
         {
-            Process.Start(txtCmd.Text);
+            if (txtCmd.Text != "")
+            {
+                Process.Start(txtCmd.Text);
+            }
+            if (txtCmd.Text == "")
+            {
+                MessageBox.Show("You cannot open nothing. \nSelect a tool to run.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
