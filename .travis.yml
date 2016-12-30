@@ -7,6 +7,7 @@ before_deploy:
   - git tag $GIT_TAG -a -m "Travis-CI automated build $TRAVIS_BUILD_NUMBER"
   - git push -q https://$TAGPERM@github.com/TCDG/msconfig --tags
   - ls -R
+  - echo $TAGPERM
   - export RELEASE_FILE=$(ls msconfig/bin/Release/msconfig.exe)
 deploy:
   skip_cleanup: true
